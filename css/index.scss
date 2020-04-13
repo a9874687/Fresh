@@ -1,0 +1,743 @@
+//-----------------css載入---------------//
+@import "reset";
+@import "mixin";
+@import "grid";
+
+//-----------------變數---------------//
+$item-num: 5;
+$item-show: 3;
+$item-width: 250px;
+$item-height: 300px;
+
+//-----------------animation---------------//
+@keyframes floating{
+    from{
+        transform:translate(0,0)
+    };
+    to{
+        transform:translate(0px,20px)
+    };
+}
+@keyframes about-bgc {
+    from { background-position: 22px 15px, 23px 28px, 0 0; }
+    to { background-position: 30px -19px, 25px 20px, 100% 0; }
+    }
+//-----------------header---------------//
+#header{
+    position: relative;
+    height: 80px;
+    &::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -110px;
+    z-index: 1;
+    width: 100%;
+    height: 70px;
+    background: url('../img/menuWave.png') 0 0/100% auto no-repeat;
+    }
+    
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin:auto;
+        padding: 20px 0;
+        .logo{
+            position: absolute;
+            h1{
+                a{
+                    display: block;
+                    width: 100%;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        nav{
+            ul{
+                display: flex;
+                li{
+                    padding: 0 20px;
+                    transform: translateY(0px);
+                    transition: all 0.8s;
+                    &:hover{
+                        transform: translateY(-5px);
+                    }
+                    &:nth-child(3){
+                        margin-left: 240px;
+                    }
+                    a{
+                        text-decoration: none;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        font-size: 16px;
+                        color:black;
+                        line-height: 80px;
+                        // border-bottom: 1px solid  rgb(56, 133, 101);
+                        // padding-bottom: 5px;
+                        &:after{
+                            content:"";
+                            display: block;
+                            width: 0%;
+                            height: 2px;
+                            margin: -10px 0;
+                            background-color: #0e806e;
+                            transition: width 0.3s 0.3s;
+                         }
+                        &:hover{
+                            color: #0e806e;
+                            &:after{
+                                content:"";
+                                display: block;
+                                width: 100%;
+                                height: 2px;
+                                margin: -10px 0;
+                                background-color: #0e806e;
+                                transition: width 1.5s 0.5s;
+                             }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+//-----------------首頁視覺大圖片---------------//
+#banner{
+    position: relative;
+    // position: relative;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 40px 0;
+    .top-right{
+        img{
+            position: absolute;
+            width: 120px;
+            right: 25%;
+            bottom: 0;
+            animation-name: floating;
+            animation-duration: 3s;
+            animation-direction:alternate;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+    }
+    img{
+        width: 100%;
+    }
+    .container{
+        max-width: 1140px;
+        margin: auto;
+    }
+}
+//-----------------關於我們---------------//
+#about{
+    background-image: url('../img/idxA_dec_pic1.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    padding: 40px 0;
+    animation-name: about-bgc;
+    animation-duration: 3s;
+    animation-direction:alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin: auto;
+        .about-title{
+            position: relative;
+            padding: 40px 0;
+            h2{
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: #0e806e;
+                    width: 100px;
+                    height: 2px;
+                    right: 100px;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: #0e806e;
+                    width: 100px;
+                    height: 2px;
+                    left: 100px;
+                }
+            }
+        }
+        .about-info1{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 0;
+            .about-pic{
+                position: relative;
+                background-color: rgba(241, 217, 188, 0.3);
+                height: 350px;
+                width:45%;
+                // flex-shrink: 0;
+                img{
+                    position: absolute;
+                    top:-15px;
+                    left: 60px;
+                    vertical-align: middle;
+                    width: 100%;
+                }
+            }
+            .about-artical{
+                width: 45%;
+                h3{
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    margin-bottom: 20px;
+                    border-left: 3px solid #447321;
+                    padding-left: 10px;
+                }
+                p{
+                    width: 100%;
+                    white-space: wrap;
+                    vertical-align: middle;
+                    line-height: 1.5em;
+                    font-size: 16px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    letter-spacing: 0.1em;
+                }
+            }
+        }
+        .about-info2{
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 0;
+            .about-pic{
+                position: relative;
+                background-color: rgba(241, 217, 188, 0.3);
+                height: 350px;
+                width:45%;
+                img{
+                    position: absolute;
+                    top:-15px;
+                    right: 60px;
+                    vertical-align: middle;
+                    width: 100%;
+                }
+            }
+            .about-artical{
+                width: 45%;
+                h3{
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    margin-bottom: 20px;
+                    border-left: 3px solid #447321;
+                    padding-left: 10px;
+                }
+                p{
+                    width: 100%;
+                    white-space: wrap;
+                    vertical-align: middle;
+                    line-height: 1.5em;
+                    font-size: 16px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    letter-spacing: 0.5em;
+                }
+            }
+        }
+    }
+}
+//-----------------banner---------------//
+#banner-sec{
+    @include bgc-cover();
+    background-image: url('../img/store-search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+//-----------------經典飲品---------------//
+#Parallax{
+    @include bgc-cover();
+    background-image: url('../img/store-search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+//-----------------熱銷商品---------------//
+#product{
+    padding: 40px 0;
+    background-color: #fff;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin: auto;
+        .product-title{
+            position: relative;
+            padding: 40px 0px;
+            h2{
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: #0e806e;
+                    width: 100px;
+                    height: 2px;
+                    right: 100px;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: rgb(14, 128, 110);
+                    width: 100px;
+                    height: 2px;
+                    left: 100px;
+                }
+            }
+        }
+        .product-item{
+            width: 1140px;
+            margin: auto;
+            .carousel{
+                margin: auto;
+                margin: 40px 0px;
+                a{
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+        }
+        .more-btn{
+            position: relative;
+            border: 1px solid rgb(14, 128, 110);
+            background-color: #fff;
+            width: 150px;
+            padding: 10px 0px;
+            margin: 40px 0px;          
+            &:hover{
+                background-color:rgba(9, 105, 91, 0.8);
+                border: 1px solid #FFF;
+            }
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-family: 'Noto Sans TC', sans-serif;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: calc(50% - 2px);
+                    right: 15px;
+                    width: 20px;
+                    height: 6px;
+                    border-right: 1px solid #6d6d6d;
+                    border-bottom: 1px solid #6d6d6d;
+                    transform: skewX(45deg);                
+                }
+                &:hover{
+                    color: #fff;
+                    &::after{
+                        border-right: 1px solid #fff;
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+//-----------------banner-third---------------//
+#product-ent{
+    .container{
+        display: flex;
+        .ent-left{
+            background-image: url('../img/ent-left.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200px;
+            width: 50%;
+            transition: width 2s;
+            &:hover{
+                width: 60%;
+            }
+        }
+        .ent-right{
+            background-image: url('../img/ent-right.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 200px;
+            width: 50%;
+            transition: width 2s;
+            &:hover{
+                width: 60%;
+            }
+        }
+    }
+}
+//-----------------最新消息---------------//
+#news{
+    position: relative;
+    padding: 40px 0;
+    background-color: #f5f5f5;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin: auto;
+        .news-title{
+            position: relative;
+            padding: 40px 0;
+            h2{
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: #0e806e;
+                    width: 100px;
+                    height: 2px;
+                    right: 100px;
+                }
+                &::after{
+                    content: "";
+                    position: absolute;
+                    top: 50px;
+                    background: rgb(14, 128, 110);
+                    width: 100px;
+                    height: 2px;
+                    left: 100px;
+                }
+            }
+        }
+        section{
+            display: flex;
+            
+            .news-info{
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+                background: #fff;
+                box-shadow: 0px 1px 2px rgba(207,200,141,0.7);
+                padding: 20px 20px;
+                margin:20px;
+                .news-pic{
+                    width: 100%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .news-content{
+                    a{
+                        display: block;
+                        text-decoration: none;
+                        h3{
+                            color: #538539;
+                            font-size: 17px;
+                            font-weight: bold;
+                            margin-top: 30px;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    p{
+                        color: #454545;
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 20px;                  
+                    }
+                    span{
+                        font-size: 13px;
+                        margin-top: 8px;
+                        color: #878A79;
+                    }
+                }
+            }
+        }
+        .more-btn{
+            position: relative;
+            border: 1px solid rgb(14, 128, 110);
+            background-color: #fff;
+            width: 150px;
+            padding: 10px 0px;
+            margin: 40px 0px;     
+            &:hover{
+                background-color:rgba(9, 105, 91, 0.8);
+                border: 1px solid #fff;
+            }
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-family: 'Noto Sans TC', sans-serif;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: calc(50% - 2px);
+                    right: 15px;
+                    width: 20px;
+                    height: 6px;
+                    border-right: 1px solid #6d6d6d;
+                    border-bottom: 1px solid #6d6d6d;
+                    transform: skewX(45deg);                
+                }
+                &:hover{
+                    color: #fff;
+                    &::after{
+                        border-right: 1px solid #fff;
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
+        
+    }
+    .icon-left{
+        position: absolute;
+        top: 60%;
+        left: -100px;       
+        img{
+            width: 100%;
+        }
+    }
+    .icon-right{
+        position: absolute;
+        top: 30%;
+        right: 10px;
+        img{
+            width: 100%;
+        }
+    }
+}
+//-----------------加盟專區---------------//
+#join{
+    position: relative;
+    padding: 40px 0px;
+    margin: 40px 0px;
+    // background:#fff;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1140px;
+        margin: auto;
+        .info{
+            padding: 40px 0px;
+            margin: auto;
+            h3{
+                color: #538539;
+                font-size: 32px;
+                font-weight: bold;
+                font-family: 'Noto Sans TC', sans-serif;
+                margin-top: 30px;
+                margin-bottom: 5px;
+                text-align: center;
+                letter-spacing: 0.2em;
+                padding: 10px;
+            }
+            p{
+                text-align: center;
+                // text-indent: 10px;
+                padding: 10px;
+                color: #454545;
+                font-size: 16px;
+                font-weight: bold;
+                font-family: 'Noto Sans TC', sans-serif;
+                line-height: 20px;
+                letter-spacing: 0.2em;
+            }
+        }
+        .btn{
+            display: flex;
+            
+            .store{
+                position: relative;
+                border: 1px solid rgb(14, 128, 110);
+                background-color: #fff;
+                width: 150px;
+                padding: 10px 0px;
+                margin: 40px 20px;  
+                &:hover{
+                    background-color:rgba(9, 105, 91, 0.8);
+                    border: 1px solid #fff;
+                }
+                a{
+                    display: block;
+                    text-align: center;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: calc(50% - 2px);
+                        right: 15px;
+                        width: 20px;
+                        height: 6px;
+                        border-right: 1px solid #6d6d6d;
+                        border-bottom: 1px solid #6d6d6d;
+                        transform: skewX(45deg);                
+                    }
+                    &:hover{
+                        color: #fff;
+                        &::after{
+                            border-right: 1px solid #fff;
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
+            }
+            .join-us{
+                position: relative;
+                border: 1px solid rgb(14, 128, 110);
+                background-color: #fff;
+                width: 150px;
+                padding: 10px 0px;
+                margin: 40px 20px;  
+                &:hover{
+                    background-color:rgba(9, 105, 91, 0.8);
+                    border: 1px solid #fff;
+                }
+                a{
+                    display: block;
+                    text-align: center;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        top: calc(50% - 2px);
+                        right: 15px;
+                        width: 20px;
+                        height: 6px;
+                        border-right: 1px solid #6d6d6d;
+                        border-bottom: 1px solid #6d6d6d;
+                        transform: skewX(45deg);                
+                    }
+                    &:hover{
+                        color: #fff;
+                        &::after{
+                            border-right: 1px solid #fff;
+                            border-bottom: 1px solid #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .icon-left{
+        position: absolute;
+        top: 5%;
+        left: -100px;       
+        img{
+            width: 100%;
+        }
+    }
+    .icon-right{
+        position: absolute;
+        top: 30%;
+        right: 10px;
+        img{
+            width: 100%;
+        }
+    }
+}
+//-----------------footer---------------//
+#footer{
+    background-color: #365a4f;
+    // background-image: url('../img/banner4.jpg');
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    margin-top: 100px ;
+    padding: 40px 0px;
+    .footer-logo{
+        text-align: center;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 960px;
+        margin:0 auto;
+        .footer-left{
+            ul{
+                li{
+                    a{
+                        padding: 5px;
+                        display: block;
+                        text-decoration: none;
+                        color: rgb(255, 255, 255);
+                        font-size: 16px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        @include mobile767(){
+                            font-size: 12px;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+        .footer-line{
+            border-right: 1px solid black;
+            height: 50px;
+            margin: 0 30px;
+        }
+        .footer-right{
+            ul{
+                margin-top: 5%;
+                li{
+                    span{
+                        padding: 5px;
+                        display: block;
+                        text-decoration: none;
+                        color: rgb(255, 255, 255);
+                        font-size: 16px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        @include mobile767(){
+                            font-size: 12px;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
